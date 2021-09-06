@@ -18,11 +18,4 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(username, password) {
-    Auth.signIn(username, password).then((userInfo: CognitoUser) => {
-      this.authService.currentUser = userInfo;
-      this.router.navigate(['']);
-    }).catch(e => console.error('Login Error: ', e))
-  }
-
 }

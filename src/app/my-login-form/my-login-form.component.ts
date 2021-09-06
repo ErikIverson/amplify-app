@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -9,6 +10,10 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./my-login-form.component.scss']
 })
 export class MyLoginFormComponent {
+
+  constructor(
+    private authService: AuthService
+  ) {}
 
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -23,5 +28,9 @@ export class MyLoginFormComponent {
   @Input() error: string | null;
 
   @Output() submitEM = new EventEmitter();
+
+  loginUser() {
+    this.authService.login(this.form.value.username, this.form.value.password);
+  }
 
 }
