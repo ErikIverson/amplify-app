@@ -1,3 +1,5 @@
-<p>home works!</p>
+<div *ngIf="currentUser">
+<h4>{{currentUser.getUsername()}}</h4>
 
 <button (click)="logout()">Logout</button>
+</div>

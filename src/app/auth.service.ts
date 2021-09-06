@@ -12,7 +12,7 @@ export class AuthService {
   private isLoggedInSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   public isLoggedIn$ = this.isLoggedInSubject.asObservable();
 
-  public userObject: CognitoUser;
+  public currentUser: CognitoUser;
 
   constructor(
     private router: Router
@@ -20,10 +20,10 @@ export class AuthService {
     Auth.configure(awsmobile);
   }
 
-  private static currentUser(): Observable<CognitoUser> {
+  public getCurrentUser(): Observable<CognitoUser> {
     return from(Auth.currentAuthenticatedUser());
   }
 
-  
+
 
 }

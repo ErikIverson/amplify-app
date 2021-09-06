@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
+import Auth, {CognitoUser} from '@aws-amplify/auth';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +10,17 @@ import Auth from '@aws-amplify/auth';
 })
 export class HomeComponent implements OnInit {
 
+  currentUser: CognitoUser;
   constructor(
     private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.authService.getCurrentUser().subscribe(user => {
+      this.currentUser = user;
+      console.log(this.currentUser);
+    })
   }
 
 

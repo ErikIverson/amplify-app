@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import Auth from '@aws-amplify/auth';
+import Auth, { CognitoUser } from '@aws-amplify/auth';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,16 +11,18 @@ import Auth from '@aws-amplify/auth';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
   }
 
   login(username, password) {
-    Auth.signIn(username, password).then(results => {
+    Auth.signIn(username, password).then((userInfo: CognitoUser) => {
+      this.authService.currentUser = userInfo;
       this.router.navigate(['']);
-    })
+    }).catch(e => console.error('Login Error: ', e))
   }
 
 }
