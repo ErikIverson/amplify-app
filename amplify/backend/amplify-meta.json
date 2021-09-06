@@ -44,10 +44,31 @@
         "IdentityPoolName": "amplifyappb6c846be_identitypool_b6c846be__dev",
         "UserPoolName": "amplifyappb6c846be_userpool_b6c846be"
       },
-      "lastPushTimeStamp": "2021-09-02T22:16:21.563Z",
+      "lastPushTimeStamp": "2021-09-04T21:39:47.822Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyapp-dev-140830-deployment/amplify-cfn-templates/auth/amplifyappb6c846be-cloudformation-template.yml",
         "logicalId": "authamplifyappb6c846be"
+      }
+    },
+    "userPoolGroups": {
+      "service": "Cognito-UserPool-Groups",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "auth",
+          "resourceName": "amplifyappb6c846be",
+          "attributes": [
+            "UserPoolId",
+            "AppClientIDWeb",
+            "AppClientID",
+            "IdentityPoolId"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2021-09-04T21:39:47.746Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-amplifyapp-dev-140830-deployment/amplify-cfn-templates/auth/template.json",
+        "logicalId": "authuserPoolGroups"
       }
     }
   }
