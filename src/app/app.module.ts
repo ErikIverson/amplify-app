@@ -20,6 +20,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { MySignupFormComponent } from './my-signup-form/my-signup-form.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    MyLoginFormComponent
+    MyLoginFormComponent,
+    MySignupFormComponent
   ],
   imports: [
     BrowserModule,
