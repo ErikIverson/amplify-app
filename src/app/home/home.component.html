@@ -10,12 +10,12 @@
   </mat-toolbar>
 
   <mat-sidenav-container>
-    <mat-sidenav #sidenav mode="over" opened class="background-primary">
-      <button mat-button class="menu-button">
+    <mat-sidenav #sidenav mode="over" class="background-primary"  (click)="sidenav.toggle()">
+      <button mat-button class="menu-button" [routerLink]="'points'">
         <mat-icon>home</mat-icon>
-        <span>Home</span>
+        <span>My Points</span>
     </button>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [routerLink]="'profile'">
         <mat-icon>person</mat-icon>
         <span>Profile</span>
     </button>
@@ -32,9 +32,9 @@
     </button>
     </mat-sidenav>
     <mat-sidenav-content>
-        Main
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
 
-<button (click)="logout()">Logout</button>
+
 </div>

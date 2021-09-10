@@ -23,6 +23,7 @@ import { MatDividerModule } from '@angular/material/divider';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { MySignupFormComponent } from './my-signup-form/my-signup-form.component';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { MySignupFormComponent } from './my-signup-form/my-signup-form.component
     LoginComponent,
     HomeComponent,
     MyLoginFormComponent,
-    MySignupFormComponent
+    MySignupFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +49,7 @@ import { MySignupFormComponent } from './my-signup-form/my-signup-form.component
     MatToolbarModule,
     MatSidenavModule,
     MatDividerModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

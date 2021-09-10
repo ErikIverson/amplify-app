@@ -27,8 +27,14 @@ export class AuthService {
   public login(username, password) {
     Auth.signIn(username, password).then((userInfo: CognitoUser) => {
       this.currentUser = userInfo;
-      this.router.navigate(['']);
+      this.router.navigate(['home']);
     }).catch(e => console.error('Login Error: ', e))
+  }
+
+  public logout() {
+    Auth.signOut();
+    this.router.navigate(['/login']);
+    console.log('logout')
   }
 
 
