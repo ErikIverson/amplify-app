@@ -68,15 +68,30 @@
         }
       }
     },
-    "authamplifyappb6c846be": {
+    "apiamplifyapp2": {
       "Type": "AWS::CloudFormation::Stack",
       "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplifyapp-dev-140830-deployment/amplify-cfn-templates/auth/amplifyappb6c846be-cloudformation-template.yml",
+        "TemplateURL": "https://s3.amazonaws.com/amplify-amplifyapp2-dev-95040-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "Parameters": {
-          "identityPoolName": "amplifyappb6c846be_identitypool_b6c846be",
+          "CreateAPIKey": 1,
+          "AppSyncApiName": "amplifyapp2",
+          "DynamoDBBillingMode": "PAY_PER_REQUEST",
+          "DynamoDBEnableServerSideEncryption": false,
+          "S3DeploymentBucket": "amplify-amplifyapp2-dev-95040-deployment",
+          "S3DeploymentRootKey": "amplify-appsync-files/60fdc96cc70c131cd29cf2d6cac5a9683780a595",
+          "env": "dev"
+        }
+      }
+    },
+    "authamplifyapp2f4ee32f9": {
+      "Type": "AWS::CloudFormation::Stack",
+      "Properties": {
+        "TemplateURL": "https://s3.amazonaws.com/amplify-amplifyapp2-dev-95040-deployment/amplify-cfn-templates/auth/amplifyapp2f4ee32f9-cloudformation-template.yml",
+        "Parameters": {
+          "identityPoolName": "amplifyapp2f4ee32f9_identitypool_f4ee32f9",
           "allowUnauthenticatedIdentities": false,
-          "resourceNameTruncated": "amplifb6c846be",
-          "userPoolName": "amplifyappb6c846be_userpool_b6c846be",
+          "resourceNameTruncated": "ampliff4ee32f9",
+          "userPoolName": "amplifyapp2f4ee32f9_userpool_f4ee32f9",
           "autoVerifiedAttributes": "email",
           "mfaConfiguration": "OFF",
           "mfaTypes": "SMS Text Message",
@@ -87,16 +102,16 @@
           "defaultPasswordPolicy": false,
           "passwordPolicyMinLength": 8,
           "passwordPolicyCharacters": "",
-          "requiredAttributes": "email",
+          "requiredAttributes": "email,name,phone_number",
           "aliasAttributes": "email",
           "userpoolClientGenerateSecret": false,
           "userpoolClientRefreshTokenValidity": 30,
-          "userpoolClientWriteAttributes": "family_name,given_name,nickname,phone_number,picture,email",
-          "userpoolClientReadAttributes": "address,birthdate,email,family_name,given_name,nickname,phone_number,picture,email_verified,phone_number_verified",
-          "userpoolClientLambdaRole": "amplifb6c846be_userpoolclient_lambda_role",
-          "userpoolClientSetAttributes": true,
-          "sharedId": "b6c846be",
-          "resourceName": "amplifyappb6c846be",
+          "userpoolClientWriteAttributes": "email",
+          "userpoolClientReadAttributes": "email",
+          "userpoolClientLambdaRole": "ampliff4ee32f9_userpoolclient_lambda_role",
+          "userpoolClientSetAttributes": false,
+          "sharedId": "f4ee32f9",
+          "resourceName": "amplifyapp2f4ee32f9",
           "authSelections": "identityPoolAndUserPool",
           "authRoleArn": {
             "Fn::GetAtt": [
@@ -110,60 +125,17 @@
               "Arn"
             ]
           },
-          "useDefault": "manual",
-          "userPoolGroupList": "Admins,Members",
+          "useDefault": "default",
+          "triggers": "{}",
+          "userPoolGroupList": "",
           "serviceName": "Cognito",
           "usernameCaseSensitive": false,
-          "dependsOn": "",
-          "thirdPartyAuth": false,
-          "userPoolGroups": true,
-          "adminQueries": false,
-          "triggers": "{}",
-          "hostedUI": true,
-          "hostedUIDomainName": "poohps",
-          "authProvidersUserPool": "",
-          "hostedUIProviderMeta": "[]",
-          "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:4200/\"],\"LogoutURLs\":[\"http://localhost:4200/login/\"]}",
           "parentStack": {
             "Ref": "AWS::StackId"
           },
           "breakCircularDependency": true,
           "permissions": "",
-          "authProviders": "",
-          "hostedUIProviderCreds": "[]",
-          "env": "dev"
-        }
-      }
-    },
-    "authuserPoolGroups": {
-      "Type": "AWS::CloudFormation::Stack",
-      "Properties": {
-        "TemplateURL": "https://s3.amazonaws.com/amplify-amplifyapp-dev-140830-deployment/amplify-cfn-templates/auth/template.json",
-        "Parameters": {
-          "authamplifyappb6c846beUserPoolId": {
-            "Fn::GetAtt": [
-              "authamplifyappb6c846be",
-              "Outputs.UserPoolId"
-            ]
-          },
-          "authamplifyappb6c846beAppClientIDWeb": {
-            "Fn::GetAtt": [
-              "authamplifyappb6c846be",
-              "Outputs.AppClientIDWeb"
-            ]
-          },
-          "authamplifyappb6c846beAppClientID": {
-            "Fn::GetAtt": [
-              "authamplifyappb6c846be",
-              "Outputs.AppClientID"
-            ]
-          },
-          "authamplifyappb6c846beIdentityPoolId": {
-            "Fn::GetAtt": [
-              "authamplifyappb6c846be",
-              "Outputs.IdentityPoolId"
-            ]
-          },
+          "dependsOn": "",
           "env": "dev"
         }
       }
@@ -172,7 +144,7 @@
       "DependsOn": [
         "AuthRole",
         "UnauthRole",
-        "authamplifyappb6c846be"
+        "authamplifyapp2f4ee32f9"
       ],
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -255,7 +227,7 @@
         },
         "idpId": {
           "Fn::GetAtt": [
-            "authamplifyappb6c846be",
+            "authamplifyapp2f4ee32f9",
             "Outputs.IdentityPoolId"
           ]
         },

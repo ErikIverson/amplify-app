@@ -21,15 +21,26 @@ export class MySignupFormComponent {
     password: new FormControl(''),
     email: new FormControl(''),
     phone: new FormControl(''),
+    name: new FormControl('Erik Iverson')
   });
 
   public registerUser() {
     console.log(this.form.value);
+    const username = this.form.value.username;
+    const password = this.form.value.password;
+    const email = this.form.value.email;
+    const phone = this.form.value.phone;
+    const name = 'Erik Iverson'
     Auth.signUp(
-      this.form.value.username, 
-      this.form.value.password, 
-      this.form.value.email, 
-      this.form.value.phone
+      {
+        username,
+        password,
+        attributes: {
+          'email': email,
+          'phone_number': phone,
+          'name' : name
+        }
+      }
       ).then( results => {
         console.log('Successful registration: ', results)
         console.log('Please wait for a confirmation email to be sent.')

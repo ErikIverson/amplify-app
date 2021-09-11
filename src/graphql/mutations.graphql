@@ -1,0 +1,199 @@
+# this is an auto generated file. This will be overwritten
+mutation CreateHousePoints(
+  $input: CreateHousePointsInput!
+  $condition: ModelHousePointsConditionInput
+) {
+  createHousePoints(input: $input, condition: $condition) {
+    id
+    name
+    year
+    active
+    points
+    attendance {
+      Value
+      description
+    }
+    gpa {
+      Value
+      description
+    }
+    semesters_president {
+      Value
+      description
+    }
+    semesters_ec {
+      Value
+      description
+    }
+    semesters_leadership {
+      Value
+      description
+    }
+    semesters_inHouse {
+      Value
+      description
+    }
+    semesters_active {
+      Value
+      description
+    }
+    certifications {
+      Value
+      description
+    }
+    bmp_phases_completed {
+      Value
+      description
+    }
+    ibl_awards {
+      Value
+      description
+    }
+    semesters_ec_cabinet {
+      Value
+      description
+    }
+    semesters_onCampus_orgs {
+      Value
+      description
+    }
+    sigep_elections {
+      Value
+      description
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation UpdateHousePoints(
+  $input: UpdateHousePointsInput!
+  $condition: ModelHousePointsConditionInput
+) {
+  updateHousePoints(input: $input, condition: $condition) {
+    id
+    name
+    year
+    active
+    points
+    attendance {
+      Value
+      description
+    }
+    gpa {
+      Value
+      description
+    }
+    semesters_president {
+      Value
+      description
+    }
+    semesters_ec {
+      Value
+      description
+    }
+    semesters_leadership {
+      Value
+      description
+    }
+    semesters_inHouse {
+      Value
+      description
+    }
+    semesters_active {
+      Value
+      description
+    }
+    certifications {
+      Value
+      description
+    }
+    bmp_phases_completed {
+      Value
+      description
+    }
+    ibl_awards {
+      Value
+      description
+    }
+    semesters_ec_cabinet {
+      Value
+      description
+    }
+    semesters_onCampus_orgs {
+      Value
+      description
+    }
+    sigep_elections {
+      Value
+      description
+    }
+    createdAt
+    updatedAt
+  }
+}
+mutation DeleteHousePoints(
+  $input: DeleteHousePointsInput!
+  $condition: ModelHousePointsConditionInput
+) {
+  deleteHousePoints(input: $input, condition: $condition) {
+    id
+    name
+    year
+    active
+    points
+    attendance {
+      Value
+      description
+    }
+    gpa {
+      Value
+      description
+    }
+    semesters_president {
+      Value
+      description
+    }
+    semesters_ec {
+      Value
+      description
+    }
+    semesters_leadership {
+      Value
+      description
+    }
+    semesters_inHouse {
+      Value
+      description
+    }
+    semesters_active {
+      Value
+      description
+    }
+    certifications {
+      Value
+      description
+    }
+    bmp_phases_completed {
+      Value
+      description
+    }
+    ibl_awards {
+      Value
+      description
+    }
+    semesters_ec_cabinet {
+      Value
+      description
+    }
+    semesters_onCampus_orgs {
+      Value
+      description
+    }
+    sigep_elections {
+      Value
+      description
+    }
+    createdAt
+    updatedAt
+  }
+}

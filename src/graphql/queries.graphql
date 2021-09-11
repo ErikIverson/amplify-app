@@ -1,0 +1,134 @@
+# this is an auto generated file. This will be overwritten
+query GetHousePoints($id: ID!) {
+  getHousePoints(id: $id) {
+    id
+    name
+    year
+    active
+    points
+    attendance {
+      Value
+      description
+    }
+    gpa {
+      Value
+      description
+    }
+    semesters_president {
+      Value
+      description
+    }
+    semesters_ec {
+      Value
+      description
+    }
+    semesters_leadership {
+      Value
+      description
+    }
+    semesters_inHouse {
+      Value
+      description
+    }
+    semesters_active {
+      Value
+      description
+    }
+    certifications {
+      Value
+      description
+    }
+    bmp_phases_completed {
+      Value
+      description
+    }
+    ibl_awards {
+      Value
+      description
+    }
+    semesters_ec_cabinet {
+      Value
+      description
+    }
+    semesters_onCampus_orgs {
+      Value
+      description
+    }
+    sigep_elections {
+      Value
+      description
+    }
+    createdAt
+    updatedAt
+  }
+}
+query ListHousePoints(
+  $filter: ModelHousePointsFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listHousePoints(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      name
+      year
+      active
+      points
+      attendance {
+        Value
+        description
+      }
+      gpa {
+        Value
+        description
+      }
+      semesters_president {
+        Value
+        description
+      }
+      semesters_ec {
+        Value
+        description
+      }
+      semesters_leadership {
+        Value
+        description
+      }
+      semesters_inHouse {
+        Value
+        description
+      }
+      semesters_active {
+        Value
+        description
+      }
+      certifications {
+        Value
+        description
+      }
+      bmp_phases_completed {
+        Value
+        description
+      }
+      ibl_awards {
+        Value
+        description
+      }
+      semesters_ec_cabinet {
+        Value
+        description
+      }
+      semesters_onCampus_orgs {
+        Value
+        description
+      }
+      sigep_elections {
+        Value
+        description
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
