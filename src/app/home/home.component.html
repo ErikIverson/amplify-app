@@ -1,33 +1,40 @@
 <div *ngIf="currentUser">
-    <mat-toolbar color="primary">
-        <span class="fill-remaining-space">
-          <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger" (mouseover)="menuTrigger.openMenu()">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" [overlapTrigger]="false">
-          <span (mouseleave)="menuTrigger.closeMenu()">
-            <button mat-menu-item>
-              <mat-icon>home</mat-icon>
-              <span>Home</span>
-        </button>
-        <button mat-menu-item>
-              <mat-icon>people_outline</mat-icon>
-              <span>Connecting</span>
-            </button>
-        <button mat-menu-item>
-              <mat-icon>videocam</mat-icon>
-              <span>Let's talk</span>
-            </button>
-        <button mat-menu-item>
-              <mat-icon>exit_to_app</mat-icon>
-              <span>Logout</span>
-            </button>
-        </span>
-        </mat-menu>
-        </span>
-        <span class="fill-remaining-space">Publicly Open & Official Housing Points Standings</span>
-        <h4 class="username">Hello, {{currentUser.getUsername()}}</h4>
-      </mat-toolbar>
+  <mat-toolbar color="primary">
+    <span class="fill-remaining-space">
+      <button mat-icon-button (click)="toggleSidenav()">
+        <mat-icon>menu</mat-icon>
+      </button> 
+    </span>
+    <span class="fill-remaining-space">Publicly Open & Official Housing Points Standings</span>
+    <h4 class="username">Hello, {{currentUser.getUsername()}}</h4>
+  </mat-toolbar>
 
-<button (click)="logout()">Logout</button>
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" class="background-primary"  (click)="sidenav.toggle()">
+      <button mat-button class="menu-button" [routerLink]="'points'">
+        <mat-icon>home</mat-icon>
+        <span>My Points</span>
+    </button>
+    <button mat-button class="menu-button" [routerLink]="'profile'">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+    </button>
+    <button mat-button class="menu-button">
+        <mat-icon>info</mat-icon>
+        <span>About</span>
+    </button>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button">
+        <mat-icon>help</mat-icon>
+        <span>Help</span>
+    </button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
 </div>

@@ -4,8 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { MySignupFormComponent } from './my-signup-form/my-signup-form.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     component: LoginComponent,
@@ -17,10 +23,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
-    pathMatch: "full",
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuardService],
+    children: [
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: 'points',
+        component: MySignupFormComponent
+      },
+      {
+        path: '',
+        redirectTo: 'profile',
+        pathMatch: 'full'
+      }
+    ]
   }
 ];
 

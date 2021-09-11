@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import Auth, {CognitoUser} from '@aws-amplify/auth';
 import { AuthService } from '../auth.service';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-home',
@@ -10,10 +11,14 @@ import { AuthService } from '../auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+
   currentUser: CognitoUser;
   constructor(
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -23,10 +28,12 @@ export class HomeComponent implements OnInit {
     })
   }
 
-
-  logout() {
-    Auth.signOut();
-    this.router.navigate(['/login']);
-    console.log('logout')
+  toggleSidenav() {
+    this.sidenav.toggle();
   }
+
+  goToPath(path: string) {
+    this.router.navigate([path], { relativeTo: this.route });
+  }
+
 }
